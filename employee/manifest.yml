@@ -1,0 +1,9 @@
+﻿applications:
+- buildpack: https://github.com/cloudfoundry/dotnet-core-buildpack
+  name: employees
+  memory: 128m
+  random-route: true
+  services:
+    - mysql-service
+    - config-service
+  timeout: 180
