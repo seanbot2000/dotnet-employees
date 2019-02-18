@@ -1,4 +1,4 @@
-﻿using employee.Data;
+using employee.Data;
 using employee.Models;
 using employee.Repositories;
 using employee.Services;
@@ -12,8 +12,6 @@ using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Swashbuckle.AspNetCore.Swagger;
 using Steeltoe.Management.CloudFoundry;
 using Steeltoe.Management.Endpoint.Refresh;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 
 namespace employee
 {
@@ -47,12 +45,9 @@ namespace employee
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, EmployeeDbSeed employeeDbSeed)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, EmployeeDbSeed employeeDbSeed)
         {
-            loggerFactory.AddConsole();
-            var logger = loggerFactory.CreateLogger<ConsoleLogger>();
-            logger.LogInformation("Executing Configure()");
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
